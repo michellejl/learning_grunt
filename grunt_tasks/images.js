@@ -4,22 +4,18 @@ module.exports = function (grunt, config) {
       dev: {
         options: {
           sizes: [{
-            name: 'small',
-            width: '30%',
-            suffix: '_small',
-            quality: 20
-          },{
-            name: 'large',
-            width: '50%',
-            suffix: '_large',
-            quality: 40
+            width: 400,
+            name: 'small'
+          }, {
+            width: 800,
+            name: 'large'
           }]
         },
         files: [{
           expand: true,
-          src: ['*.{gif,jpg,png}'],
-          cwd: 'img/',
-          dest: 'img/'
+          src: ['**/*.{jpg,gif,png}'],
+          cwd: config.imgSrcDir,
+          dest: config.imgOptimizedDir
         }]
       }
     },
